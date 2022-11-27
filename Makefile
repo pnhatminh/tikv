@@ -94,12 +94,6 @@ endif
 ifeq ($(shell uname -m),armv6l)
 ROCKSDB_SYS_SSE=0
 endif
-ifeq ($(shell uname -m),aarch64)
-ROCKSDB_SYS_SSE=0
-endif
-ifeq ($(shell uname -m),aarch64_be)
-ROCKSDB_SYS_SSE=0
-endif
 ifeq ($(shell uname -m),arm)
 ROCKSDB_SYS_SSE=0
 endif
