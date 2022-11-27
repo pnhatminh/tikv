@@ -82,13 +82,28 @@ RUST_TEST_THREADS ?= 2
 endif
 
 # Disable SSE on ARM
-ifeq ($(shell uname -p),aarch64)
+ifeq ($(shell uname -m),armv8b)
 ROCKSDB_SYS_SSE=0
 endif
-ifeq ($(shell uname -p),arm)
+ifeq ($(shell uname -m),armv8l)
 ROCKSDB_SYS_SSE=0
 endif
-ifeq ($(shell uname -p),arm64)
+ifeq ($(shell uname -m),armv7l)
+ROCKSDB_SYS_SSE=0
+endif
+ifeq ($(shell uname -m),armv6l)
+ROCKSDB_SYS_SSE=0
+endif
+ifeq ($(shell uname -m),aarch64)
+ROCKSDB_SYS_SSE=0
+endif
+ifeq ($(shell uname -m),aarch64_be)
+ROCKSDB_SYS_SSE=0
+endif
+ifeq ($(shell uname -m),arm)
+ROCKSDB_SYS_SSE=0
+endif
+ifeq ($(shell uname -m),arm64)
 ROCKSDB_SYS_SSE=0
 endif
 
